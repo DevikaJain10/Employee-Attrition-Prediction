@@ -1,93 +1,115 @@
-# Employee-Attrition-HR_dataset
+# 🧠 HR Attrition Prediction using Machine Learning
 
+Predicting whether an employee is likely to leave an organization using machine learning techniques.
 
+## 📌 Project Overview
 
-## Getting started
+Employee attrition can cost companies significant resources. This project focuses on predicting attrition based on historical employee data using various machine learning models. The goal is to help HR teams proactively identify at-risk employees and take preventive actions.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+---
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## 📂 Dataset
 
-## Add your files
+The dataset used is based on the **IBM HR Analytics Employee Attrition & Performance** dataset, which contains information such as:
+DATASET:- (https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
+- Age
+- Job Role
+- Job Satisfaction
+- Monthly Income
+- Years at Company
+- OverTime
+- BusinessTravel
+- Environment Satisfaction
+- Work-Life Balance  
+...and more.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+Target variable: `Attrition` (Yes/No)
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/devikajaincambridge/employee-attrition-hr_dataset.git
-git branch -M main
-git push -uf origin main
-```
+---
 
-## Integrate with your tools
+## 🧰 Tools & Libraries Used
 
-- [ ] [Set up project integrations](https://gitlab.com/devikajaincambridge/employee-attrition-hr_dataset/-/settings/integrations)
+- Python 3.x
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Seaborn
+- GridSearchCV
 
-## Collaborate with your team
+---
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+## 📊 Steps Followed
 
-## Test and Deploy
+1. **Data Preprocessing**
+   - Handled missing values
+   - Encoded categorical variables
+   - Scaled numerical features (where needed)
 
-Use the built-in continuous integration in GitLab.
+2. **Exploratory Data Analysis (EDA)**
+   - Visualized correlations and feature distributions
+   - Identified key features contributing to attrition
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+3. **Model Building**
+   - Trained multiple models: Logistic Regression, Decision Tree, Random Forest Classifier, Support Vector Machine(SVM)
+   - Used **GridSearchCV** for hyperparameter tuning
+   - Evaluated with accuracy, precision, recall, F1-score, and confusion matrix
 
-***
+4. **Performance**
+   - Best model: Random Forest Classifier(after tuning)
+   - Achieved **88% accuracy** on test data
+Classification Report:
 
-# Editing this README
+    precision recall f1-score support
+0.0     0.85    0.89    0.87    250
+1.0     0.88    0.84    0.86    244
+---
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## 📈 Results
 
-## Suggestions for a good README
+- **Accuracy**: 88%
+- **Evaluation Metrics**: Confusion matrix, classification report
+- **Key Features Influencing Attrition**:
+  - Overtime
+  - Job Satisfaction
+  - Age
+  - Years at Company
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+---
 
-## Name
-Choose a self-explaining name for your project.
+## Novelty 
+- **Real-World Focus**: Tackles the business-critical issue of employee attrition using ML for proactive HR
+decisions.
+- **Class Imbalance Solved with SMOTE**: Balanced dataset using synthetic oversampling to improve minority
+class prediction.
+- **Comparative Modeling**: Evaluated Logistic Regression, Random Forest, and SVM to identify the
+best-performing model.
+- **Statistical Feature Selection**: Used SelectKBest with ANOVA F-value to reduce noise and improve model
+performance.
+- **Visual Insights for Stakeholders**: EDA with meaningful plots like Attrition vs. Job Satisfaction aids
+managerial understanding.
+- **Reliable Evaluation**: Applied K-Fold Cross-Validation for unbiased performance metrics
+- **Managerial Recommendations**: Model insights guide HR teams on retention strategies based on top
+influencing factors.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## 🚀 Future Improvements
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+- Implement XGBoost or LightGBM for possible performance gain
+- Handle class imbalance with SMOTE or class weights
+- Deploy model using Streamlit for HR dashboard
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+---
+## 🔗 View the Project
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Click the link below to open the project directly in Google Colab:
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+[📎 Open in Google Colab](https://colab.research.google.com/drive/1Xv3AWeMDUJMcL87hZ0ZbGGml68jgoaK8?usp=sharing)
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+---
+## 🤝 Acknowledgements
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- IBM HR Analytics Dataset
+- scikit-learn documentation
+- pandas documentation
+- Kaggle and online ML communities for inspiration
+- SMOTE articles from MEDIUM
