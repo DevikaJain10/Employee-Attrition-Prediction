@@ -60,9 +60,9 @@ Target variable: `Attrition` (Yes/No)
    - Achieved **88% accuracy** on test data
 Classification Report:
 
-    precision recall f1-score support
-0.0     0.85    0.89    0.87    250
-1.0     0.88    0.84    0.86    244
+-    precision recall f1-score support
+-0.0     0.85    0.89    0.87    250
+-1.0     0.88    0.84    0.86    244
 ---
 
 ## 📈 Results
