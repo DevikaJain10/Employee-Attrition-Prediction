@@ -56,7 +56,7 @@ Target variable: `Attrition` (Yes/No)
    - Evaluated with accuracy, precision, recall, F1-score, and confusion matrix
 
 4. **Performance**
-   - Best model: Decision Tree Classifier(after tuning)
+   - Best model: Random Forest Classifier(after tuning)
    - Achieved **88% accuracy** on test data
 Classification Report:
 
